@@ -1,0 +1,74 @@
+* 日本語プログラミング開発計画メモ
+** 開発方針
+** タイルスクリプト
+
+- 関連研究
+  - [[http://ieeexplore.ieee.org/xpl/articleDetails.jsp?reload=true&arnumber=4459482][IEEE Xplore Abstract - Toward A More Scalable End-User Scripting Language]]
+  - [[http://ci.nii.ac.jp/naid/110009660234][CiNii 論文 -  ビジュアル-Java相互変換によるシームレスな言語移行を指向したプログラミング学習環境の提案と評価]]
+
+- OpenBlocks
+  - [[http://dspace.mit.edu/handle/1721.1/41550][DSpace@MIT: OpenBlocks : an extendable framework for graphical block programming systems]]
+  - [[http://education.mit.edu/openblocks][Open Blocks Download Page | MIT STEP]]
+  - [[https://github.com/mikaelhg/openblocks][mikaelhg/openblocks]]
+
+** ネーミング
+   - 言霊でいいのか
+     
+** カッコの使用
+   - 手続きの定義方法
+     − （＜オブジェクト＞と＜オブジェクト＞）を＜・・・する＞
+
+** 言語開発の流れブーターの開発方針
+   - ブーターをJava 等で使る
+   - 後は全部日本語で作る方法をとる
+
+** 評価
+   - 日本語なら私も書いてみたい
+   - コーディング能力が高くない人に書いてもらう
+
+* 修士論文のアプローチ
+** 正規表現を用いたインタープリター
+
+*** 具象表現
+トマトとりんごの値段を合計する
+
+*** 定義
+正規表現で具象文法を定義
+
+*** 意味
+Rubyで記述
+
+** 成功例
+
+#+begin_src ruby
+input = "トマトとりんごの値段を合計する"
+p input
+pattern = %r{(?<o1>.*)と(?<o2>.*)の(?<f1>.*)を(?<v1>.*する)}
+p pattern
+result = pattern.match(input)
+p result[:o1]
+p result[:o2]
+p result[:f1]
+p result[:v1]
+#+end_src
+
+** 失敗例
+
+#+begin_src ruby
+input = "しおとさとうの値段を合計する"
+p input
+pattern = %r{(?<o1>.*)と(?<o2>.*)の(?<f1>.*)を(?<v1>.*する)}
+p pattern
+result = pattern.match(input)
+p result[:o1]
+p result[:o2]
+p result[:f1]
+p result[:v1]
+#+end_src
+
+** 解決方法
+
+
+** 具象文法の取り扱い
+   − テキストをパースする必要があるのか？
+
