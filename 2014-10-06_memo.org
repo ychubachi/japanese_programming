@@ -1,4 +1,4 @@
-* 日本語プログラミング開発計画メモ
+* 日本語プログラミング開発計画メモ 2014-10-06 中鉢
 ** 開発方針
 *** 言語開発の流れブーターの開発方針
    - ブーターをJava 等で使る
@@ -9,11 +9,7 @@
    - コーディング能力が高くない人に書いてもらう
 *** ネーミング
    - 言霊でいいのか
-*** 具象文法における括弧の扱い
-   - 手続きの定義方法
-     − （＜オブジェクト＞と＜オブジェクト＞）を＜・・・する＞
-
-** タイルスクリプトのアプローチ
+* タイルスクリプトのアプローチ
 
 - 関連研究
   - [[http://ieeexplore.ieee.org/xpl/articleDetails.jsp?reload=true&arnumber=4459482][IEEE Xplore Abstract - Toward A More Scalable End-User Scripting Language]]
@@ -24,17 +20,14 @@
   - [[http://education.mit.edu/openblocks][Open Blocks Download Page | MIT STEP]]
   - [[https://github.com/mikaelhg/openblocks][mikaelhg/openblocks]]
 
-     
-
-
 * 修士論文のアプローチ
 ** 正規表現を用いたインタープリター
 
-*** 具象表現
+*** 日本語による表現
 トマトとりんごの値段を合計する
 
-*** 定義
-正規表現で具象文法を定義
+*** パース
+正規表現でプログラムをパース
 
 *** 意味
 Rubyで記述
@@ -68,6 +61,13 @@ p result[:o1], result[:o2], result[:f1], result[:v1]
      - 変数定義時に辞書に登録し，この情報を用いてパースする
      - 「しお」と「さとう」は分離しないようにする
 
-** 具象文法の取り扱い
-   − テキストをパースする必要があるのか？
+* 課題
+** 具象文法における括弧の扱い
+  - 手続きの定義方法
+    − （＜オブジェクト＞と＜オブジェクト＞）を＜・・・する＞
+** テキストのパース
+   - そもそもテキストをパースする必要があるのか？
+   - 構造エディタ（structure editor）を利用する？
+     - [[http://en.wikipedia.org/wiki/Structure_editor][Structure editor - Wikipedia, the free encyclopedia]]
+     - タイルスクリプトのGUIエディタもstructure editor
 
