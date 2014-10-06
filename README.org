@@ -1,0 +1,3 @@
+* Japanese Programming
+
+Idea notes about Japanese programming.
