@@ -1,6 +1,19 @@
 * 日本語プログラミング開発計画メモ
 ** 開発方針
-** タイルスクリプト
+*** 言語開発の流れブーターの開発方針
+   - ブーターをJava 等で使る
+   - 後は全部日本語で作る方法をとる
+
+*** 評価
+   - 日本語なら私も書いてみたい
+   - コーディング能力が高くない人に書いてもらう
+*** ネーミング
+   - 言霊でいいのか
+*** 具象文法における括弧の扱い
+   - 手続きの定義方法
+     − （＜オブジェクト＞と＜オブジェクト＞）を＜・・・する＞
+
+** タイルスクリプトのアプローチ
 
 - 関連研究
   - [[http://ieeexplore.ieee.org/xpl/articleDetails.jsp?reload=true&arnumber=4459482][IEEE Xplore Abstract - Toward A More Scalable End-User Scripting Language]]
@@ -11,20 +24,8 @@
   - [[http://education.mit.edu/openblocks][Open Blocks Download Page | MIT STEP]]
   - [[https://github.com/mikaelhg/openblocks][mikaelhg/openblocks]]
 
-** ネーミング
-   - 言霊でいいのか
      
-** カッコの使用
-   - 手続きの定義方法
-     − （＜オブジェクト＞と＜オブジェクト＞）を＜・・・する＞
 
-** 言語開発の流れブーターの開発方針
-   - ブーターをJava 等で使る
-   - 後は全部日本語で作る方法をとる
-
-** 評価
-   - 日本語なら私も書いてみたい
-   - コーディング能力が高くない人に書いてもらう
 
 * 修士論文のアプローチ
 ** 正規表現を用いたインタープリター
@@ -42,32 +43,30 @@ Rubyで記述
 
 #+begin_src ruby
 input = "トマトとりんごの値段を合計する"
-p input
 pattern = %r{(?<o1>.*)と(?<o2>.*)の(?<f1>.*)を(?<v1>.*する)}
-p pattern
 result = pattern.match(input)
-p result[:o1]
-p result[:o2]
-p result[:f1]
-p result[:v1]
+p result[:o1], result[:o2], result[:f1], result[:v1]
 #+end_src
+
+#+RESULTS:
+| トマト | りんご | 値段 | 合計する |
 
 ** 失敗例
 
 #+begin_src ruby
 input = "しおとさとうの値段を合計する"
-p input
 pattern = %r{(?<o1>.*)と(?<o2>.*)の(?<f1>.*)を(?<v1>.*する)}
-p pattern
 result = pattern.match(input)
-p result[:o1]
-p result[:o2]
-p result[:f1]
-p result[:v1]
+p result[:o1], result[:o2], result[:f1], result[:v1]
 #+end_src
 
-** 解決方法
+#+RESULTS:
+| しおとさ | う | 値段 | 合計する |
 
+** 解決方法
+   - 辞書を用いる
+     - 変数定義時に辞書に登録し，この情報を用いてパースする
+     - 「しお」と「さとう」は分離しないようにする
 
 ** 具象文法の取り扱い
    − テキストをパースする必要があるのか？
