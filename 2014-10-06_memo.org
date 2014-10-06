@@ -71,7 +71,7 @@ p result[:o1], result[:o2], result[:f1], result[:v1]
      - [[http://en.wikipedia.org/wiki/Structure_editor][Structure editor - Wikipedia, the free encyclopedia]]
      - タイルスクリプトのGUIエディタもstructure editor
 
-* COMMENT
+* COMMENT hoge
 *** 2013-07-24 日本語プログラミング言語
 
 **** 単語
