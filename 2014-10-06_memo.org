@@ -73,7 +73,7 @@ p result[:o1], result[:o2], result[:f1], result[:v1]
 input = "オブジェクトpをクラスCとして作る。"
 pattern = %r{オブジェクト(?<o>.*)をクラス(?<c>.*)として作る。}
 result = pattern.match(input)
-"#{result[:o]} = new #{result[:c]}();"
+p "#{result[:o]} = new #{result[:c]}();"
 #+end_src
 
 #+RESULTS:
@@ -87,7 +87,7 @@ result = pattern.match(input)
 input = "pを100歩進める。"
 pattern = %r{(?<o>.*)を(?<p>.*)歩(?<m>.*)。}
 result = pattern.match(input)
-"#{result[:o]}.#{result[:m]}(#{result[:p]})"
+p "#{result[:o]}.#{result[:m]}(#{result[:p]})"
 #+end_src
 
 #+RESULTS:
@@ -101,7 +101,7 @@ result = pattern.match(input)
 input = "xとyをfしてzにする。"
 pattern = %r{(?<p1>.*)と(?<p2>.*)を(?<m>.*)して(?<r>.*)にする。}
 result = pattern.match(input)
-"#{result[:r]}.#{result[:m]}(#{result[:p1]}, #{result[:p2]})"
+p "#{result[:r]}.#{result[:m]}(#{result[:p1]}, #{result[:p2]})"
 #+end_src
 
 #+RESULTS:
