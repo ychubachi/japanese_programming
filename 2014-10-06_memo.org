@@ -65,7 +65,9 @@ p result[:o1], result[:o2], result[:f1], result[:v1]
      - 変数定義時に辞書に登録し，この情報を用いてパースする
      - 「しお」と「さとう」は分離しないようにする
 
-** 敷島日本語表現
+
+* 敷島日本語表現
+** 敷島日本語表現(1)
 
 #+begin_src ruby
 input = "オブジェクトpをクラスCとして作る。"
@@ -76,6 +78,36 @@ result = pattern.match(input)
 
 #+RESULTS:
 : p = new C();
+
+   - クラスのコンストラクタへの引数は？
+
+** 敷島日本語表現(2)
+
+#+begin_src ruby
+input = "pを100歩進める。"
+pattern = %r{(?<o>.*)を(?<p>.*)歩(?<m>.*)。}
+result = pattern.match(input)
+"#{result[:o]}.#{result[:m]}(#{result[:p]})"
+#+end_src
+
+#+RESULTS:
+: p.進める(100)
+
+   - 助数詞「歩」の取り扱い？
+
+** 敷島日本語表現(3)
+
+#+begin_src ruby
+input = "xとyをfしてzにする。"
+pattern = %r{(?<p1>.*)と(?<p2>.*)を(?<m>.*)して(?<r>.*)にする。}
+result = pattern.match(input)
+"#{result[:r]}.#{result[:m]}(#{result[:p1]}, #{result[:p2]})"
+#+end_src
+
+#+RESULTS:
+: z.f(x, y)
+
+   - 引数の数が増えた場合，正規表現の繰り返し規則で対応する？
 
 * 課題
 ** 具象文法における括弧の扱い
